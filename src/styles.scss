@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+.right {
+  display: flex;
+  justify-content: end;
+}
+.left {
+  display: flex;
+  justify-content: start;
+}
+.title {
+  font-weight: bolder;
+  font-size: larger;
+  text-align: center;
+}
+
+.primary {
+  color: #649c9d;
+}
+.secundary {
+  color: #f9b826;
+}
+.primary-background {
+  background-color: #649c9d;
+}
+
+.secundary-background {
+  background-color: #f9b826;
+}
+
+.full-width {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #649c9d;
+  color: #f9b826;
+}
+.btn-secun {
+  background-color: #f9b826;
+  color: #649c9d;
+}

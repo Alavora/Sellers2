@@ -1,0 +1,66 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>
+      <span>Seller App</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="products" (click)="drawer.toggle()">
+        <mat-icon>store</mat-icon>
+
+        Shops
+      </a>
+      <a mat-list-item routerLink="baskets" (click)="drawer.toggle()">
+        <mat-icon>shopping_basket</mat-icon>
+
+        Baskets
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="d-flex justify-content-center mt-5">
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div>
+      <div
+        style="margin-top: 10px"
+        fxLayout
+        fxLayoutAlign="center"
+        style="text-align: center"
+      >
+        <img class="col-6" src="../../assets/logo.png" alt="80px" />
+      </div>
+      <!--  <app-login *ngIf="getPage()==='login'"></app-login> -->
+
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <ngx-bottom-nav class="btnavbar" >
+  <button ngx-bottom-nav (click)="drawer.toggle()" >
+    <mat-icon ngxBottomNavIcon>menu</mat-icon>
+  </button>
+
+  <button ngx-bottom-nav label="" routerLink="/" >>
+    <mat-icon ngxBottomNavIcon>home</mat-icon>
+  </button>
+
+  <button  ngx-bottom-nav routerLink="..">
+    <mat-icon ngxBottomNavIcon>keyboard_backspace</mat-icon>
+  </button>
+</ngx-bottom-nav>
+ -->

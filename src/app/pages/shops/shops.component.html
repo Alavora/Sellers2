@@ -1,0 +1,43 @@
+<!--
+ <h3  class="title"> Shops </h3>
+ <mat-nav-list  style="padding-top: 10px;">
+
+	<a mat-list-item class="row">
+    <img mat-list-avatar src="../../../assets/logo.png">
+		<span (click)="onNavigate(1)" matLine>Guigui Shop</span>
+	</a>
+</mat-nav-list>
+<mat-paginator *ngIf="shops.length>8" #paginator
+[length]="shops?.data?.length"
+[pageIndex]="0"
+[pageSize]="10"
+[pageSizeOptions]="[5, 10, 20]"
+
+>
+
+</mat-paginator> -->
+
+<h3 class="title">Shops</h3>
+<div class="right">
+  <button class="col" mat-fab style="margin-right: 2px" color="accent">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<mat-nav-list *ngFor="let shop of shops">
+  <a mat-list-item class="row">
+    <img mat-list-avatar (click)="onNavigate(shop.id)" [src]="shop.image" />
+    <span matLine (click)="onNavigate(shop.id)">{{ shop.name }}</span>
+    <button mat-mini-fab color="primary">
+      <mat-icon>create</mat-icon>
+    </button>
+    <button
+      mat-mini-fab
+      style="margin-left: 2px"
+      color="warn"
+      (click)="deleteShop(shop)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </a>
+</mat-nav-list>
