@@ -41,6 +41,7 @@ import { EditComponent } from './pages/shops/edit/edit.component';
 import { MatTableModule } from '@angular/material/table';
 import { DetailsComponent } from './pages/baskets/items/details/details.component';
 import { registerLocaleData } from '@angular/common';
+import { ProductComponent } from './pages/shops/edit/product/product.component';
 registerLocaleData(localeDe);
 
 @NgModule({
@@ -56,6 +57,7 @@ registerLocaleData(localeDe);
     ItemsComponent,
 
     DetailsComponent,
+     ProductComponent,
   ],
   imports: [
     BrowserModule,

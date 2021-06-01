@@ -56,13 +56,14 @@ export class ShopsComponent {
    */
 
   onNavigate(id: number) {
-    if (this.idMarket) {
-      this.router.navigateByUrl(this.router.url + '/products');
-    } else {
-      this.router.navigateByUrl(this.router.url + '/' + id + '/products');
-    }
+    this.router.navigateByUrl(this.router.url + '/' + id + '/products');
   }
-
+  /**
+   *to delete an element
+   *
+   * @param {*} shop
+   * @memberof ShopsComponent
+   */
   deleteShop(shop: any) {
     console.log('ddddd');
   }

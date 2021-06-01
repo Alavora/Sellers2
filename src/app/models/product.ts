@@ -1,7 +1,14 @@
-export interface Product{
-  id:number;
-  image_url:string;
+import { Unit } from './unit';
+/**
+ *interface of Product
+ *
+ * @export declare
+ * @interface Product name of interfce
+ */
+export interface Product {
+  id: number;
+  image_url: string;
   name: string;
-  price: number;
-  shop_id:string;
- }
+  units: Unit[];
+  shop_id: string;
+}

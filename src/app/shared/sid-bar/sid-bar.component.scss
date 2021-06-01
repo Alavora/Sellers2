@@ -5,7 +5,7 @@
 .sidenav {
   width: 200px;
 }
-.menulogo{
+.menulogo {
   width: 100px;
   height: 90px;
 }
@@ -19,19 +19,21 @@
   z-index: 1;
 }
 
-.mat-toolbar{
-  background-color: #649C9D;
+.mat-toolbar {
+  background-color: #649c9d;
 }
 
-.sidenav{
-  background-color: #F9B826;
+.sidenav {
+  background-color: #f9b826;
 }
-mat-sidenav-content{
-  background-color: #649C9D;
-
+mat-sidenav-content {
+  background-color: #649c9d;
 }
-.btnavbar{
-  background-color: #F9B826;
-
+.btnavbar {
+  background-color: #f9b826;
 }
 
+.btnconfirm {
+  background-color: #f9b826;
+  color: #649c9d;
+}

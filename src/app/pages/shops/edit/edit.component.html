@@ -1,0 +1,55 @@
+<h2 class="center">Products</h2>
+<div class="mat-elevation-z8">
+  <table mat-table class="tbl" [dataSource]="dataSource" aria-label="Elements">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let row">
+        <div>
+          <button
+            class="warn"
+            style="margin-right: 5px"
+            (click)="onDelete(row.id)"
+            mat-mini-fab
+            aria-label="Example icon button with a menu icon"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            (click)="onNavigate(row.id)"
+            mat-mini-fab
+            class="btn-show"
+            aria-label="Example icon button with a menu icon"
+          >
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    class="tbl"
+    #paginator
+    [length]="dataSource?.data?.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+  >
+  </mat-paginator>
+</div>
+<div style="padding-top: 5px; display: flex; justify-content: end"></div>

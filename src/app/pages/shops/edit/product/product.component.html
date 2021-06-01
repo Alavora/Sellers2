@@ -1,0 +1,65 @@
+<form
+  #registerForm="ngForm"
+  class="center"
+  [formGroup]="productForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+>
+  <mat-card class="shipping-card">
+    <mat-card-header fxLayout fxLayoutAlign="center">
+      <mat-card-title>Update Item</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="center">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              class="form-control"
+              placeholder="Name"
+              formControlName="name"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Product Id</mat-label>
+            <input
+              matInput
+              placeholder="Product ID"
+              formControlName="product_id"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Shop ID</mat-label>
+            <input matInput placeholder="Shop ID" formControlName="shop_id" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Image Url</mat-label>
+            <input
+              matInput
+              placeholder="Image Url"
+              formControlName="image_url"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayout fxLayoutAlign="center">
+      <button mat-raised-button type="submit">Update</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -37,11 +37,6 @@ export class PublicDataService {
       .pipe(map((result: any) => result.data));
   }
 
-  public getProducts() {
-    const url = this.url + 'products';
-    return this.http.get(url).pipe(map((result: any) => result));
-  }
-
   getBaskets() {
     const url = this.url + 'seller/baskets';
     return this.http.get(url).pipe(map((result: any) => result));
@@ -69,7 +64,7 @@ export class PublicDataService {
     status: number
   ) {
     const url = this.url + 'seller/baskets/items/update';
-    this.http
+    return this.http
       .post<any>(url, {
         item_id,
         quantity,
@@ -78,5 +73,24 @@ export class PublicDataService {
         status,
       })
       .pipe();
+  }
+
+  getproducts() {
+    const url = this.url + 'seller/products';
+    return this.http.get(url).pipe(map((result: any) => result));
+  }
+
+  postproducts(name: string, image_url: string, shop_id: number, units: any[]) {
+    const url = this.url + 'seller/products';
+    return this.http
+      .post<any>(url, { name, image_url, shop_id, units })
+      .pipe(map((result: any) => result));
+  }
+
+  putproducts(name: string, image_url: string, shop_id: number, units: any[]) {
+    const url = this.url + 'seller/products';
+    return this.http
+      .put<any>(url, { name, image_url, shop_id, units })
+      .pipe(map((result: any) => result));
   }
 }
