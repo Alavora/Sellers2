@@ -39,9 +39,7 @@ export class UserService {
       catchError((error) => {
         return observable.toString();
       }),
-      tap((res) => {
-        console.log(res);
-      })
+      tap((res) => {})
     );
   }
 

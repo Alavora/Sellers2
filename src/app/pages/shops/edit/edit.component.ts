@@ -5,6 +5,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { PublicDataService } from 'src/app/services/public-data.service';
 
+/**
+ * declare component
+ */
+/**
+ *
+ *
+ * @export
+ * @class EditComponent
+ * @implements {OnInit} on app loads
+ */
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -32,19 +42,28 @@ export class EditComponent implements OnInit {
   public idShop!: string;
   public products: Product[] = [];
   displayedColumns = ['id', 'name', 'action'];
+  /**
+   * when app loads
+   */
   ngOnInit(): void {
     this.idShop = this.route.snapshot.paramMap.get('id') || '';
     this.publicService.getproducts().subscribe((data) => {
       this.products = data.data;
-      console.log(data.data);
       this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
     });
   }
-
+  /**
+   *
+   * @param id to navigate
+   */
   onNavigate(id: number) {
     this.router.navigateByUrl(this.router.url + '/' + id);
   }
+  /**
+   *
+   * @param id to delete item
+   */
   onDelete(id: number) {}
 }

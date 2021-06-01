@@ -70,13 +70,11 @@ export class ItemsComponent implements OnInit {
     const id = Number(this.basketId);
     this.publicService.getBasket(id).subscribe((data) => {
       this.basketItems = data.data;
-      console.log(this.basketItems);
       //this.basketItems = data;
       this.basketItems = data.data;
       this.dataSource = new MatTableDataSource(this.basketItems);
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
-      console.log(this.basketItems);
     });
   }
 

@@ -64,7 +64,5 @@ export class ShopsComponent {
    * @param {*} shop
    * @memberof ShopsComponent
    */
-  deleteShop(shop: any) {
-    console.log('ddddd');
-  }
+  deleteShop(shop: any) {}
 }

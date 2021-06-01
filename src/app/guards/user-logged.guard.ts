@@ -44,7 +44,6 @@ export class UserLoggedGuard implements CanActivate {
     } else {
       return this.user.checkLoggedIn(this.token).pipe(
         map((res: any) => {
-          console.log(res);
           if (res['id'] > 0) {
             this.router.navigateByUrl('/');
 

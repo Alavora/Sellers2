@@ -70,12 +70,10 @@ export class BasketsComponent implements OnInit {
     const id = Number(this.idMarket);
     this.publicService.getBaskets().subscribe((data) => {
       this.baskets = data;
-      //this.basketItems = data;
       this.baskets = data.data;
       this.dataSource = new MatTableDataSource(this.baskets);
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;
-      console.log(this.baskets);
     });
   }
 
@@ -88,9 +86,7 @@ export class BasketsComponent implements OnInit {
     this.router.navigateByUrl(this.router.url + '/' + id + '/items');
   }
 
-  deleteShop(shop: any) {
-    console.log('ddddd');
-  }
+  deleteShop(shop: any) {}
 
   getStatusString(str: string): string {
     let response = '';

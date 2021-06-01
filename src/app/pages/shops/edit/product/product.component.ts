@@ -11,6 +11,12 @@ import { PublicDataService } from 'src/app/services/public-data.service';
  * @export declare the class
  * @class ProductComponent
  * @implements {OnInit} when ap inits
+/**
+ *Class product
+ *
+ * @export
+ * @class ProductComponent
+ * @implements {OnInit} when
  */
 @Component({
   selector: 'app-product',
@@ -35,6 +41,14 @@ export class ProductComponent implements OnInit {
   public idShop!: string;
   public products: Product[] = [];
   public product!: Product;
+  /**
+   * constructor
+   * @param publicService public data service
+   * @param route handles the current url
+   * @param router handle navigation
+   * @param fb form builder
+   * @param dialog dialog
+   */
   constructor(
     private publicService: PublicDataService,
     private route: ActivatedRoute,
@@ -46,7 +60,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.idl = this.route.snapshot.paramMap.get('idl') || '';
     this.idShop = this.route.snapshot.paramMap.get('id') || '';
-    console.log(this.idShop);
     this.publicService.getproducts().subscribe((data) => {
       this.products = data.data;
       this.products.forEach((res) => {
@@ -56,7 +69,6 @@ export class ProductComponent implements OnInit {
           this.productForm.get('product_id')?.setValue(this.product.id);
           this.productForm.get('shop_id')?.setValue(this.product.shop_id);
           this.productForm.get('image_url')?.setValue(this.product.image_url);
-          console.log(this.product);
         }
       });
     });
@@ -68,16 +80,18 @@ export class ProductComponent implements OnInit {
     const shop_id = Number(this.productForm.get('shop_id')?.value);
     const image_url = this.productForm.get('image_url')?.value;
     const units = this.product.units;
-    this.publicService.postproducts(name, image_url, shop_id, units).subscribe(
-      (res) => {
-        const content = 'Updated!';
-        this.openOkDialog('SUCCESS!', content);
-      },
-      (error) => {
-        const content = 'Error occured when trying to update item!';
-        this.openOkDialog('ERROR!', content);
-      }
-    );
+    this.publicService
+      .postproducts(product_id, name, image_url, shop_id, units)
+      .subscribe(
+        (res) => {
+          const content = 'Updated!';
+          this.openOkDialog('SUCCESS!', content);
+        },
+        (error) => {
+          const content = 'Error occured when trying to update item!';
+          this.openOkDialog('ERROR!', content);
+        }
+      );
   }
   /**
    *opens the dailog

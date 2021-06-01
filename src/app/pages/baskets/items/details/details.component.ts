@@ -110,7 +110,6 @@ export class DetailsComponent implements OnInit {
       this.basketItems.forEach((element) => {
         if (Number(element.id) === Number(this.itemId)) {
           this.item = element;
-          console.log(this.item);
           this.itemsForm.get('product_id')?.setValue(element.product_id);
           this.itemsForm.get('quantity')?.setValue(element.quantity);
           this.itemsForm.get('itemid')?.setValue(element.id);
@@ -118,13 +117,10 @@ export class DetailsComponent implements OnInit {
           this.itemsForm.get('status')?.setValue(element.status);
         }
       });
-      console.log(this.basketItems);
     });
   }
   /** when the user confirm  */
   onSubmit() {
-    console.log(this.itemsForm.get('unit_id')?.value);
-    console.log(this.itemsForm.get('status')?.value);
     const id = Number(this.basketId);
 
     const product_id = Number(this.itemsForm.get('product_id')?.value);

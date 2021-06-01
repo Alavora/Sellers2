@@ -44,7 +44,6 @@ export class LoginComponent {
   public onSubmit(): void {
     const email = this.userLogin.get('email')?.value;
     const password = this.userLogin.get('password')?.value;
-    console.log(email, password);
     this.userService.login(email, password).subscribe((res) => {
       if (res === '@') {
         this.openDialog();

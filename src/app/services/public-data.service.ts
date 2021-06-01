@@ -80,15 +80,27 @@ export class PublicDataService {
     return this.http.get(url).pipe(map((result: any) => result));
   }
 
-  postproducts(name: string, image_url: string, shop_id: number, units: any[]) {
-    const url = this.url + 'seller/products';
+  postproducts(
+    id: number,
+    name: string,
+    image_url: string,
+    shop_id: number,
+    units: any[]
+  ) {
+    const url = this.url + 'seller/products/' + id;
     return this.http
       .post<any>(url, { name, image_url, shop_id, units })
       .pipe(map((result: any) => result));
   }
 
-  putproducts(name: string, image_url: string, shop_id: number, units: any[]) {
-    const url = this.url + 'seller/products';
+  putproducts(
+    id: number,
+    name: string,
+    image_url: string,
+    shop_id: number,
+    units: any[]
+  ) {
+    const url = this.url + 'seller/products/' + id;
     return this.http
       .put<any>(url, { name, image_url, shop_id, units })
       .pipe(map((result: any) => result));

@@ -3,13 +3,13 @@
   "version": "0.0.8",
   "author": "Alavora Team",
   "scripts": {
-     "compodoc": "npx compodoc -p tsconfig.doc.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
